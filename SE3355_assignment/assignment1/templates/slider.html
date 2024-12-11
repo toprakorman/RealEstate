@@ -1,0 +1,66 @@
+<div class="slider">
+    <h3>Categories</h3>
+    <ul>
+        <li onclick="filterItems('Estate')" style="cursor: pointer;">
+            Estate <span>({{ category_counts.get('Estate', 0) }})</span>
+        </li>
+        <ul>
+            <li onclick="filterItems('Residence')" style="cursor: pointer;">
+                Residence <span>({{ category_counts.get('Estate, Residence', 0) }})</span>
+            </li>
+            <li onclick="filterItems('Workplace')" style="cursor: pointer;">
+                Workplace <span>({{ category_counts.get('Estate, Workplace', 0) }})</span>
+            </li>
+            <li onclick="filterItems('Land')" style="cursor: pointer;">
+                Land <span>({{ category_counts.get('Estate, Land', 0) }})</span>
+            </li>
+        </ul>
+        
+        <li onclick="filterItems('Vehicle')" style="cursor: pointer;">
+            Vehicle <span>({{ category_counts.get('Vehicle', 0) }})</span>
+        </li>
+        <ul>
+            <li onclick="filterItems('Automobile')" style="cursor: pointer;">
+                Automobile <span>({{ category_counts.get('Vehicle, Automobile', 0) }})</span>
+            </li>
+            <li onclick="filterItems('Off-Road, SUV, & Pickup')" style="cursor: pointer;">
+                Off-Road, SUV, & Pickup <span>({{ category_counts.get('Vehicle, Off-Road, SUV, & Pickup', 0) }})</span>
+            </li>
+        </ul>
+    </ul>
+</div>
+
+
+<style>
+    .slider ul {
+        list-style-type: disc;
+        padding-left: 20px;
+    }
+
+    .slider ul li {
+        color: black;
+        text-decoration: none;
+    }
+
+    .slider ul li span {
+        font-size: 0.9rem;
+        color: #555;
+        margin-left: 5px;
+    }
+</style>
+
+
+<script>
+    function filterItems(category) {
+        const items = document.querySelectorAll('.item-card');
+        items.forEach(item => {
+            const itemCategory = item.getAttribute('data-category').toLowerCase();
+            const subCategory = item.getAttribute('data-sub-category').toLowerCase();
+            if (itemCategory.includes(category.toLowerCase()) || subCategory.includes(category.toLowerCase())) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+</script>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RealEstate</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        .navbar { background: #333; color: #fff; padding: 1rem; display: flex; justify-content: space-between; align-items: center; }
+        .slider { width: 20%; float: left; background: #f4f4f4; padding: 1rem; }
+        .item-grid { margin-left: 20%; padding: 1rem; display: flex; flex-wrap: wrap; }
+        .item-card { border: 1px solid #ddd; margin: 1rem; padding: 1rem; width: 20%; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); }
+        .item-card img { max-width: 100%; height: auto; }
+        #noResults { color: red; text-align: center; margin-top: 1rem; }
+    </style>
+</head>
+<body>
+    {% block header %}{% include 'navbar.html' %}{% endblock %}
+    {% block content %}{% endblock %}
+</body>
+</html>

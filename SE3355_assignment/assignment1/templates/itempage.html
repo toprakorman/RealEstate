@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    <div class="container">
+        <div class="item-details-box">
+            <h1 class="item-title">{{ ad.name }}</h1>
+            <img src="{{ url_for('static', filename=ad.image.split('static/')[-1]) }}" alt="{{ ad.name }}" class="item-image">
+            
+            <div class="details-section">
+                <h3><strong>Details:</strong></h3>
+                <p><strong>Ad Number:</strong> {{ ad.ad_number }}</p>
+                <p><strong>Description:</strong> {{ ad.description }}</p>
+                <p><strong>Price:</strong> ${{ ad.price }}</p>
+                <p><strong>City:</strong> {{ ad.city }}</p>
+                <p><strong>Category:</strong> {{ ad.category }}</p>
+                <p><strong>Type:</strong> {{ ad.sub_category }}</p>
+            </div>
+
+            <button onclick="window.location.href='/'" class="go-back-btn">Go Back</button>
+        </div>
+    </div>
+
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f8f9fa;
+        }
+
+        .item-details-box {
+            background-color: white;
+            padding: 20px 30px;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .item-image {
+            width: 100%;
+            height: auto;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .details-section p {
+            margin: 8px 0;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .go-back-btn {
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #555;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .go-back-btn:hover {
+            background-color: #777;
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .item-details-box {
+                padding: 15px 20px;
+            }
+
+            .go-back-btn {
+                font-size: 1rem;
+            }
+        }
+    </style>
+{% endblock %}
